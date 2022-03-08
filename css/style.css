@@ -2,6 +2,12 @@
     --wh-emoji: 2rem;
     --btn-emoji-selec:2.5rem;
     --whidth-page:800px;
+
+    --bg-page-color:#F4F6F8;
+    --title-color:#0e1011;
+    --sub-title-color:#455054;
+    --input-disable:#acd5ce;
+    --input-active:#309685;
     font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 html {
@@ -13,6 +19,7 @@ html {
     flex-flow: column wrap;
     align-items: center;
     row-gap: 2rem;
+    background-color: var(--bg-page-color);
 }
 .header-container{
     min-width: var(--whidth-page);
@@ -25,21 +32,34 @@ html {
 }
 .add-to-do-container{
     display: grid;
-    grid-template-rows: repeat(2,2rem);
+    grid-template-rows: min-content;
     grid-template-columns:1fr var(--wh-emoji);
 }
 .to-do-label{
     grid-area: 1 / 1 / 2 / 3;
 }
 .to-do{
+    background-color: inherit;
     height: var(--btn-emoji-selec);
     grid-area: 2 / 1 / 3 / 2; ;
+    border: none;
+    border-bottom: solid 1px var(--input-disable);
+    resize: none;
+    outline: none;
+}
+
+.to-do:focus{
+    border-bottom-color:var(--input-active) ;
 }
 
 /*Title*/
 .title{
     font-size: 4rem;
     margin-bottom: -.5rem;
+    color: var(--title-color);
+}
+.sub-title{
+    color: var(--sub-title-color);
 }
 /* emoji-selector */
 .select-emoji-container{
@@ -50,7 +70,7 @@ html {
 }
 .list-emojis{
     position: absolute;
-    top:var(--btn-emoji-selec);
+    top:calc(var(--btn-emoji-selec) + .5rem);
     display: none;
     grid-template-columns: repeat(5,var(--btn-emoji-selec));
     column-gap: .25rem;
@@ -66,15 +86,27 @@ html {
     user-select: none;
 }
 .emojis:hover{
-    background-color: #eee;
+    background-color: var(--input-disable);
 }
 .select-emoji{
+    border-radius: 4px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     position: absolute;
-    border: solid 1px black;
     width: var(--btn-emoji-selec);
     height: var(--btn-emoji-selec);
+    padding: 3px;
     user-select: none;
+}
+.select-emoji:hover{
+    background-color: var(--input-disable);
+}
+
+/*to-do list text*/
+.to-do-item{
+    list-style: none;
+}
+.to-do-text{
+    padding-left:.5rem ;
 }
