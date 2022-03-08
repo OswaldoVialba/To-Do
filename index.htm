@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do</title>
+    <link rel="icon" href="./media/img/icon.png" type="image/png">
+    <meta name="description" content="Proyecto de una lista to-do, el objetivo es guardar los datos en la memoria
+    local para no perder los pendientes">
+    <meta name="keywords" content="to-do, pendientes, lista">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-container">
+    <header class="header-container">
+        <div class="title-container">
+            <h1 class="title">to-do</h1>
+                <span class="sub-title">¿Algún pendiente?</span>
+        </div>
+    </header>
+    <main class="main-container">
+        <div class="add-to-do-container">
+            <label for="to-do" class="to-do-label">Que no se me olvide...</label>
+            <input type="text" name="to-do" id="to-do"class="to-do">
+            <div class="select-emoji-container">
+                <div class="container-emojis">
+                    <div class="select-emoji">😃</div>
+                    <div class="list-emojis">
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="to-do-list">
+            <ol class="list-container">
+                <li class="to-do-item"><input type="checkbox" name="to-do" id="0"><span class="to-do-text">Tarea pendiente</span></li>
+            </ol>
+        </div>
+    </main>
+
+    <script src="./js/emojis-select.js"></script>
+</body>
+</html>
