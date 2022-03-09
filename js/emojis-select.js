@@ -7,14 +7,14 @@ let emojis=['&#128515', '&#128536', '&#128531', '&#128534', '&#128564', '&#12930
         selectEmojiHTML.addEventListener("click",show);
         containerEmojisHTML.addEventListener("click",(event)=>{
             if(event.target.tagName == "SPAN"){
-                funcionSaludo(event.target.innerHTML);
+                addEmojiInput(event.target.innerHTML);
             }
         })
         
         function containerEmojis(){
             let fragment = document.createDocumentFragment();
 
-            for(emoji in emojis){
+            for(let emoji in emojis){
                 let span = document.createElement("span");
                 span.innerHTML=emojis[emoji];
                 span.classList.add("emojis");
@@ -37,6 +37,7 @@ let emojis=['&#128515', '&#128536', '&#128531', '&#128534', '&#128564', '&#12930
             }
         }
 
-        function funcionSaludo(emoji){
-            console.log(emoji)
+        function addEmojiInput(emoji){
+            let todoText = document.getElementById("to-do");
+            todoText.value += emoji;
         }

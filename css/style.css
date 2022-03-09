@@ -109,4 +109,15 @@ html {
 }
 .to-do-text{
     padding-left:.5rem ;
+    color: var(--title-color);
+}
+
+.check{
+    background-color: var(--bg-page-color);
+}
+/*Modo oscuro*/
+.dark-mode{
+    --bg-page-color:#01060f;
+    --title-color:#D8E8E8;
+    --sub-title-color:#364c6e;
 }
