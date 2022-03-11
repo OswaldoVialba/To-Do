@@ -1,4 +1,10 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 :root{
+
     --wh-emoji: 2rem;
     --btn-emoji-selec:2.5rem;
     --whidth-page:800px;
@@ -15,6 +21,7 @@ html {
 }
 /*Layaut page*/
 .page-container{
+    box-sizing: border-box;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -39,6 +46,7 @@ html {
     grid-area: 1 / 1 / 2 / 3;
 }
 .to-do{
+    color: var(--title-color);
     background-color: inherit;
     height: var(--btn-emoji-selec);
     grid-area: 2 / 1 / 3 / 2; ;
@@ -63,6 +71,7 @@ html {
 }
 /* emoji-selector */
 .select-emoji-container{
+    font-size: 1.25rem;
     grid-area: 2 / 2 / 3 / 3;
 }
 .container-emojis{
@@ -115,9 +124,77 @@ html {
 .check{
     background-color: var(--bg-page-color);
 }
+
+/*button*/
+.delete-btn{
+    padding: .5rem 1rem;
+    border: solid var(--input-disable) 1px;
+    background-color: var(--input-disable);
+    color: var(--input-active);
+    font-weight: 500;
+    border-radius: .25rem;
+}
+
+.delete-btn:hover{
+    color: var(--input-active);
+    border-color: var(--input-active);
+}
+
+.delete-btn:active{
+    background-color: #ffffff00;
+    color: var(--input-active);
+    border-color: var(--input-active);
+}
+
 /*Modo oscuro*/
 .dark-mode{
     --bg-page-color:#01060f;
     --title-color:#D8E8E8;
     --sub-title-color:#364c6e;
+}
+
+.btn-dark-mode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: .25rem;
+    position: fixed;
+    top: .5rem;
+    left: .5rem;
+    font-size: 1.5rem;
+    user-select: none;
+    border-radius: .5rem;
+}
+
+.btn-dark-mode:hover{
+    background-color: var(--input-disable);
+}
+.btn-dark-mode:active{
+    background-color: var(--input-active);
+}
+
+@media screen and (max-width:850px) {
+    :root{
+        --whidth-page:100vw;
+    }
+    .page-container{
+        width: 100vw;
+    }
+
+    .main-container{
+        min-width: var(--whidth-page);
+        padding: 2rem;
+    }
+    .header-container{
+        padding-left: 2rem;
+    }
+    .list-emojis{
+        right: 0;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .list-emojis{
+        right: 0;
+    }
 }

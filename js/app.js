@@ -1,12 +1,27 @@
 let pendientes = [];
 let inputTodo = document.getElementById("to-do");
 let containerList = document.querySelector(".list-container");
+let btnDarkMode = document.querySelector(".btn-dark-mode");
+let bodyPage = document.querySelector(".page-container");
 
 window.addEventListener('DOMContentLoaded',()=>{
     getData()
     printPendientesHTML()
 });
 
+inputTodo.addEventListener("keypress",(event)=>{
+    if(event.code == "Enter"){
+        if(event.target.value != ""){
+            AddToDo(event.target.value);
+            inputTodo.value = "";
+            inputTodo.blur();
+        }
+    }
+});
+
+btnDarkMode.addEventListener("click",()=>{
+    bodyPage.classList.toggle("dark-mode");
+});
 function updateData(){
     localStorage.removeItem("listToDo");
     localStorage.setItem("listToDo",JSON.stringify(pendientes));
@@ -32,15 +47,6 @@ function printPendientesHTML(){
     containerList.appendChild(fragment);
 }
 
-inputTodo.addEventListener("keypress",(event)=>{
-    if(event.code == "Enter"){
-        if(event.target.value != ""){
-            AddToDo(event.target.value);
-            inputTodo.value = "";
-            inputTodo.blur();
-        }
-    }
-})
 
 function AddToDo(toDo){
     let start = pendientes.length;
